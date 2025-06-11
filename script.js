@@ -5,14 +5,21 @@
 let questionData;
 async function loadFunction(){
 
+document.getElementById('loading').style.display = 'block';
+document.getElementById('sub').style.display = 'none';
+
 await fetch('https://opentdb.com/api.php?amount=5&type=multiple')
 .then(response => response.json())
 .then(data =>{
     questionData = data.results
 })
 
+document.getElementById('loading').style.display = 'none';
+document.getElementById('sub').style.display = 'block';
 
 const quizeContainer = document.getElementById('quiz-container')
+
+
 
 
 questionData.forEach((q, index) => {
